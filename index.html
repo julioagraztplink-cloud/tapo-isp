@@ -1,10 +1,1026 @@
-<html>
+<!doctype html>
+<html lang="es-MX">
 <head>
-    <title>Contact Information</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tapo by TP-Link | Programa para ISPs</title>
+  <meta name="description" content="Solución inteligente de seguridad y automatización del hogar para ISPs. Incrementa ARPU, reduce churn con Tapo by TP-Link." />
+  <meta name="theme-color" content="#1F4788" />
+  <style>
+    :root {
+      --tplink-blue: #1F4788;
+      --tplink-blue-light: #2E5BA1;
+      --tplink-blue-dark: #0D2551;
+      --tplink-accent: #FF6B35;
+      --tplink-accent-light: #FFA85C;
+      --tplink-gray-dark: #1A1A1A;
+      --tplink-gray-light: #F5F5F5;
+      --tplink-gray-text: #666666;
+      --tplink-white: #FFFFFF;
+      --shadow-sm: 0 2px 8px rgba(31, 71, 136, 0.1);
+      --shadow-md: 0 4px 16px rgba(31, 71, 136, 0.15);
+      --shadow-lg: 0 8px 32px rgba(31, 71, 136, 0.2);
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+      background-color: var(--tplink-gray-light);
+      color: var(--tplink-gray-dark);
+      line-height: 1.6;
+    }
+    a {
+      color: var(--tplink-blue);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: var(--tplink-blue-light);
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--tplink-white);
+      border-bottom: 1px solid #E0E0E0;
+      box-shadow: var(--shadow-sm);
+    }
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--tplink-blue);
+    }
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--tplink-blue) 0%, var(--tplink-blue-light) 100%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--tplink-white);
+      font-weight: 700;
+      font-size: 24px;
+    }
+    nav {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+    nav a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--tplink-gray-dark);
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: var(--tplink-blue);
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 24px;
+      border-radius: 6px;
+      border: none;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--tplink-blue) 0%, var(--tplink-blue-light) 100%);
+      color: var(--tplink-white);
+      box-shadow: var(--shadow-md);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    .btn-secondary {
+      background: var(--tplink-gray-light);
+      color: var(--tplink-blue);
+      border: 1px solid var(--tplink-blue);
+    }
+    .btn-secondary:hover {
+      background: var(--tplink-blue);
+      color: var(--tplink-white);
+    }
+    .hero {
+      background: linear-gradient(135deg, var(--tplink-blue-dark) 0%, var(--tplink-blue) 100%);
+      color: var(--tplink-white);
+      padding: 80px 20px;
+    }
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin: 0 0 20px 0;
+      line-height: 1.2;
+    }
+    .hero .accent {
+      color: var(--tplink-accent);
+    }
+    .hero p {
+      font-size: 18px;
+      margin: 0 0 30px 0;
+      opacity: 0.95;
+      line-height: 1.6;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .hero-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      height: 400px;
+      font-size: 120px;
+    }
+    @media (max-width: 768px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+      }
+      .hero h1 {
+        font-size: 36px;
+      }
+      .hero-image {
+        height: 300px;
+        font-size: 80px;
+      }
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    section {
+      padding: 80px 20px;
+    }
+    section:nth-child(even) {
+      background: var(--tplink-gray-light);
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .section-header h2 {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--tplink-blue);
+      margin: 0 0 16px 0;
+    }
+    .section-header p {
+      font-size: 18px;
+      color: var(--tplink-gray-text);
+      margin: 0;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .benefit-card {
+      background: var(--tplink-white);
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+      border-top: 4px solid var(--tplink-blue);
+    }
+    .benefit-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+    .benefit-icon {
+      font-size: 40px;
+      margin-bottom: 16px;
+    }
+    .benefit-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--tplink-blue);
+      margin: 0 0 12px 0;
+    }
+    .benefit-card p {
+      color: var(--tplink-gray-text);
+      margin: 0;
+    }
+    .products-filter {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 40px 0;
+    }
+    .filter-btn {
+      padding: 8px 20px;
+      border: 2px solid var(--tplink-blue);
+      background: var(--tplink-white);
+      color: var(--tplink-blue);
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .filter-btn.active {
+      background: var(--tplink-blue);
+      color: var(--tplink-white);
+    }
+    .filter-btn:hover {
+      background: var(--tplink-blue);
+      color: var(--tplink-white);
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .product-card {
+      background: var(--tplink-white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+    .product-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+    }
+    .product-image {
+      height: 220px;
+      background: linear-gradient(135deg, #E8F0F8 0%, #D0E0F0 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+      border-bottom: 1px solid #E0E0E0;
+    }
+    .product-info {
+      padding: 20px;
+    }
+    .product-tag {
+      display: inline-block;
+      background: var(--tplink-blue);
+      color: var(--tplink-white);
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .product-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--tplink-blue);
+      margin: 0 0 8px 0;
+    }
+    .product-card p {
+      color: var(--tplink-gray-text);
+      font-size: 14px;
+      margin: 0 0 16px 0;
+    }
+    .product-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 16px 0;
+      font-size: 14px;
+      color: var(--tplink-gray-text);
+    }
+    .product-card li {
+      padding: 4px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+    .product-card li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--tplink-accent);
+      font-weight: 700;
+    }
+    .bundles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .bundle-card {
+      background: linear-gradient(135deg, var(--tplink-blue) 0%, var(--tplink-blue-light) 100%);
+      color: var(--tplink-white);
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .bundle-card:before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200px;
+      height: 200px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      z-index: 0;
+    }
+    .bundle-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+    .bundle-card > * {
+      position: relative;
+      z-index: 1;
+    }
+    .bundle-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.3);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .bundle-card h3 {
+      font-size: 24px;
+      font-weight: 700;
+      margin: 0 0 12px 0;
+    }
+    .bundle-card p {
+      margin: 0 0 20px 0;
+      opacity: 0.95;
+    }
+    .bundle-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .bundle-card li {
+      padding: 8px 0;
+      padding-left: 24px;
+      position: relative;
+    }
+    .bundle-card li:before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      opacity: 0.8;
+    }
+    .implementation-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .step-card {
+      background: var(--tplink-white);
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      padding-top: 60px;
+    }
+    .step-number {
+      position: absolute;
+      top: -15px;
+      left: 30px;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--tplink-blue) 0%, var(--tplink-blue-light) 100%);
+      color: var(--tplink-white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: 700;
+    }
+    .step-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--tplink-blue);
+      margin: 0 0 16px 0;
+    }
+    .step-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .step-card li {
+      padding: 8px 0;
+      padding-left: 24px;
+      position: relative;
+      color: var(--tplink-gray-text);
+      font-size: 14px;
+    }
+    .step-card li:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--tplink-accent);
+      font-weight: 700;
+    }
+    @media (max-width: 768px) {
+      .implementation-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      margin-top: 40px;
+    }
+    .contact-card {
+      background: var(--tplink-white);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: var(--shadow-sm);
+    }
+    .contact-card h3 {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--tplink-blue);
+      margin: 0 0 24px 0;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--tplink-blue);
+      margin-bottom: 8px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #E0E0E0;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 14px;
+      transition: border-color 0.3s ease;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--tplink-blue);
+      box-shadow: 0 0 0 3px rgba(31, 71, 136, 0.1);
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    .form-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+    @media (max-width: 768px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    footer {
+      background: var(--tplink-gray-dark);
+      color: var(--tplink-gray-light);
+      padding: 50px 20px 20px;
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-section h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--tplink-white);
+      margin: 0 0 16px 0;
+    }
+    .footer-section p {
+      color: #999;
+      font-size: 14px;
+      margin: 0 0 12px 0;
+      line-height: 1.6;
+    }
+    .footer-section a {
+      display: block;
+      color: #999;
+      font-size: 14px;
+      margin: 8px 0;
+      transition: color 0.3s ease;
+    }
+    .footer-section a:hover {
+      color: var(--tplink-blue);
+    }
+    .footer-bottom {
+      border-top: 1px solid #333;
+      padding-top: 20px;
+      text-align: center;
+      color: #666;
+      font-size: 14px;
+    }
+    @media (max-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+      .hero h1 {
+        font-size: 32px;
+      }
+      section {
+        padding: 60px 20px;
+      }
+      .section-header h2 {
+        font-size: 28px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <h1>Contact Us</h1>
-    <p>WhatsApp: 3339566397</p>
-    <p>Email: julio.agraz@tp-link.com</p>
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <div class="logo-icon">T</div>
+        <div>
+          <div>Tapo</div>
+          <div style="font-size: 12px; color: var(--tplink-gray-text); font-weight: 400;">by TP-Link</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#beneficios">Beneficios</a>
+        <a href="#productos">Productos</a>
+        <a href="#bundles">Bundles</a>
+        <a href="#implementacion">Implementación</a>
+        <a href="#contacto" class="btn btn-primary">Solicitar Demo</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div>
+        <h1>Incrementa <span class="accent">ARPU</span> y reduce <span class="accent">churn</span></h1>
+        <p>Tapo by TP-Link es la solución completa de seguridad y automatización del hogar para ISPs. Vende, instala y soporta con márgenes atractivos.</p>
+        <div class="hero-actions">
+          <a href="#productos" class="btn btn-primary">Ver Catálogo</a>
+          <a href="#bundles" class="btn btn-secondary">Ver Bundles</a>
+        </div>
+      </div>
+      <div class="hero-image">🏠</div>
+    </div>
+  </section>
+
+  <section id="beneficios">
+    <div class="container">
+      <div class="section-header">
+        <h2>¿Por qué elegir Tapo para tu ISP?</h2>
+        <p>Solución integral con soporte, capacitación e instalación opcional</p>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">📈</div>
+          <h3>ARPU y Bundles</h3>
+          <p>Agrega servicios de seguridad como add-on mensual o integra equipos en paquetes por velocidad.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🛡️</div>
+          <h3>Seguridad Lista</h3>
+          <p>Productos fáciles de instalar: cámaras, timbres, sensores y hubs. Todos con certificación TP-Link.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">📞</div>
+          <h3>Soporte Integral</h3>
+          <p>Flujos de soporte estandarizados, guías, scripts y FAQs para resolver el 90% de casos sin visita.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🏠</div>
+          <h3>Ecosistema Completo</h3>
+          <p>Desde seguridad hasta automatización. Crece con tus clientes por etapas.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">⚙️</div>
+          <h3>Compatible con tu Red</h3>
+          <p>Funciona sobre Wi-Fi/Router existente. Recomendación: vender "Wi-Fi mejorado" + Tapo.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">💰</div>
+          <h3>Márgenes Atractivos</h3>
+          <p>Venta única o renta 18-24 meses + instalación. Márgenes en equipos, instalación y servicio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="productos">
+    <div class="container">
+      <div class="section-header">
+        <h2>Catálogo de Productos</h2>
+        <p>Selecciona por categoría y arma tu portafolio ISP</p>
+      </div>
+
+      <div class="products-filter">
+        <button class="filter-btn active" onclick="filterProducts(event, 'todos')">Todos</button>
+        <button class="filter-btn" onclick="filterProducts(event, 'camaras')">Cámaras</button>
+        <button class="filter-btn" onclick="filterProducts(event, 'timbres')">Timbres</button>
+        <button class="filter-btn" onclick="filterProducts(event, 'sensores')">Sensores</button>
+        <button class="filter-btn" onclick="filterProducts(event, 'iluminacion')">Iluminación</button>
+      </div>
+
+      <div class="products-grid">
+        <div class="product-card" data-category="camaras">
+          <div class="product-image">📷</div>
+          <div class="product-info">
+            <span class="product-tag">SEGURIDAD</span>
+            <h3>Cámara Interior Wi-Fi</h3>
+            <p>Monitoreo en tiempo real desde la app Tapo.</p>
+            <ul>
+              <li>Detección de movimiento</li>
+              <li>Visión nocturna</li>
+              <li>Audio bidireccional</li>
+            </ul>
+            <button class="btn btn-primary" onclick="addToCart(event, 'Cámara Interior')">Agregar</button>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="camaras">
+          <div class="product-image">📹</div>
+          <div class="product-info">
+            <span class="product-tag">EXTERIOR</span>
+            <h3>Cámara Exterior Wi-Fi</h3>
+            <p>Protección perimetral con resistencia a intemperie.</p>
+            <ul>
+              <li>Resistencia IP65</li>
+              <li>Alertas en tiempo real</li>
+              <li>Grabación continua</li>
+            </ul>
+            <button class="btn btn-primary" onclick="addToCart(event, 'Cámara Exterior')">Agregar</button>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="timbres">
+          <div class="product-image">🔔</div>
+          <div class="product-info">
+            <span class="product-tag">ACCESOS</span>
+            <h3>Timbre / Video Doorbell</h3>
+            <p>Control de accesos desde el teléfono en cualquier lugar.</p>
+            <ul>
+              <li>Notificación al timbrar</li>
+              <li>Respuesta de audio</li>
+              <li>Grabación automática</li>
+            </ul>
+            <button class="btn btn-primary" onclick="addToCart(event, 'Video Doorbell')">Agregar</button>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="sensores">
+          <div class="product-image">📡</div>
+          <div class="product-info">
+            <span class="product-tag">AUTOMATIZACIÓN</span>
+            <h3>Sensores Inteligentes</h3>
+            <p>Detección de movimiento y apertura de puertas.</p>
+            <ul>
+              <li>Alertas por apertura</li>
+              <li>Escenas automáticas</li>
+              <li>Batería de larga duración</li>
+            </ul>
+            <button class="btn btn-primary" onclick="addToCart(event, 'Sensores')">Agregar</button>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="iluminacion">
+          <div class="product-image">💡</div>
+          <div class="product-info">
+            <span class="product-tag">ILUMINACIÓN</span>
+            <h3>Focos Inteligentes</h3>
+            <p>Control y automatización de iluminación desde app.</p>
+            <ul>
+              <li>Programación por horario</li>
+              <li>Escenas personalizadas</li>
+              <li>Compatible con Hub Tapo</li>
+            </ul>
+            <button class="btn btn-primary" onclick="addToCart(event, 'Focos Inteligentes')">Agregar</button>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="sensores">
+          <div class="product-image">🔌</div>
+          <div class="product-info">
+            <span class="product-tag">ENERGÍA</span>
+            <h3>Enchufes Inteligentes</h3>
+            <p>Automatización sencilla y control remoto de energía.</p>
+            <ul>
+              <li>Monitoreo de consumo</li>
+              <li>Programación flexible</li>
+              <li>Upsell fácil</li>
+            </ul>
+            <button class="btn btn-primary" onclick="addToCart(event, 'Enchufes')">Agregar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="bundles">
+    <div class="container">
+      <div class="section-header">
+        <h2>Bundles Recomendados para ISPs</h2>
+        <p>Paquetes listos para add-on mensual o venta con instalación</p>
+      </div>
+
+      <div class="bundles-grid">
+        <div class="bundle-card">
+          <div class="bundle-badge">ENTRADA</div>
+          <h3>Starter Seguridad</h3>
+          <p>Paquete de entrada para clientes residenciales.</p>
+          <ul>
+            <li>1 Cámara interior Wi-Fi</li>
+            <li>1 Enchufe inteligente</li>
+            <li>Instalación + checklist Wi-Fi</li>
+          </ul>
+          <button class="btn btn-secondary" style="width: 100%; margin-top: 24px; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: inherit;" onclick="contactForm()">Armar Propuesta</button>
+        </div>
+
+        <div class="bundle-card">
+          <div class="bundle-badge">POPULAR</div>
+          <h3>Hogar Protegido</h3>
+          <p>El paquete más vendido en mercado.</p>
+          <ul>
+            <li>1 Timbre/cámara exterior</li>
+            <li>1-2 Cámaras interior/exterior</li>
+            <li>Notificaciones y escenas</li>
+          </ul>
+          <button class="btn btn-secondary" style="width: 100%; margin-top: 24px; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: inherit;" onclick="contactForm()">Armar Propuesta</button>
+        </div>
+
+        <div class="bundle-card">
+          <div class="bundle-badge">NEGOCIO</div>
+          <h3>Negocio & PyME</h3>
+          <p>Para tiendas, oficinas y bodegas.</p>
+          <ul>
+            <li>2-4 Cámaras según sitio</li>
+            <li>1 Sensor / Hub (opcional)</li>
+            <li>Visitas de instalación</li>
+          </ul>
+          <button class="btn btn-secondary" style="width: 100%; margin-top: 24px; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: inherit;" onclick="contactForm()">Armar Propuesta</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="implementacion">
+    <div class="container">
+      <div class="section-header">
+        <h2>Implementación Rápida (ISP Ready)</h2>
+        <p>Checklist simple para vender, instalar y soportar</p>
+      </div>
+
+      <div class="implementation-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3>Preparación</h3>
+          <ul>
+            <li>Define 3 bundles y precios</li>
+            <li>Capacita a técnicos (30-60 min)</li>
+            <li>Checklist Wi-Fi: ubicación, señal, canal</li>
+          </ul>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3>Instalación</h3>
+          <ul>
+            <li>Alta en app Tapo y emparejamiento</li>
+            <li>Configura escenas y pruebas</li>
+            <li>Entrega manual + QR a tutoriales</li>
+          </ul>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3>Soporte</h3>
+          <ul>
+            <li>¿Hay internet?</li>
+            <li>¿Señal Wi-Fi en el punto?</li>
+            <li>¿App inicia sesión?</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" style="background: linear-gradient(135deg, var(--tplink-blue-dark) 0%, var(--tplink-blue) 100%); color: var(--tplink-white);">
+    <div class="container">
+      <div class="section-header" style="color: var(--tplink-white);">
+        <h2 style="color: var(--tplink-white);">Quiero Distribuir Tapo</h2>
+        <p style="color: rgba(255,255,255,0.8);">Deja tus datos para cotización, kit demo y programa de distribución</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Formulario de Contacto</h3>
+          <form onsubmit="handleSubmit(event)">
+            <div class="form-group">
+              <label>Nombre de Empresa *</label>
+              <input type="text" name="empresa" required>
+            </div>
+            <div class="form-group">
+              <label>Nombre de Contacto *</label>
+              <input type="text" name="nombre" required>
+            </div>
+            <div class="form-group">
+              <label>Correo Electrónico *</label>
+              <input type="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label>Teléfono / WhatsApp</label>
+              <input type="tel" name="telefono">
+            </div>
+            <div class="form-group">
+              <label>¿Qué te interesa?</label>
+              <select name="interes">
+                <option>Selecciona una opción</option>
+                <option>Distribución mayoreo</option>
+                <option>Bundles para base instalada</option>
+                <option>Kit demo para pruebas</option>
+                <option>Instalación y soporte</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Mensaje</label>
+              <textarea name="mensaje" placeholder="Cuéntanos: # de clientes, tipo de red (FTTH/WISP)..."></textarea>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Enviar Solicitud</button>
+              <a href="https://wa.me/523339566397?text=Hola%2C%20soy%20un%20ISP%20interesado%20en%20distribuir%20TP-Link%20Tapo.%20%C2%BFMe%20compartes%20precios%2C%20bundles%20y%20kit%20demo%3F" target="_blank" class="btn" style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: var(--tplink-white);">WhatsApp</a>
+            </div>
+          </form>
+        </div>
+
+        <div class="contact-card">
+          <h3>Información de Contacto</h3>
+          <p><strong>Email:</strong></p>
+          <p><a href="mailto:julio.agraz@tp-link.com" style="color: var(--tplink-blue); font-weight: 600;">julio.agraz@tp-link.com</a></p>
+          
+          <p><strong>WhatsApp:</strong></p>
+          <p><a href="https://wa.me/523339566397" target="_blank" style="color: var(--tplink-blue); font-weight: 600;">+52 333 956 6397</a></p>
+
+          <hr style="border: none; border-top: 1px solid #E0E0E0; margin: 24px 0;">
+
+          <p><strong>¿Qué incluimos?</strong></p>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="padding: 8px 0; padding-left: 24px; position: relative;">
+              <span style="position: absolute; left: 0;">✓</span>
+              <strong>Catálogo completo</strong> de productos y bundles
+            </li>
+            <li style="padding: 8px 0; padding-left: 24px; position: relative;">
+              <span style="position: absolute; left: 0;">✓</span>
+              <strong>Kit demo</strong> para pruebas con tus clientes
+            </li>
+            <li style="padding: 8px 0; padding-left: 24px; position: relative;">
+              <span style="position: absolute; left: 0;">✓</span>
+              <strong>Capacitación</strong> a tus técnicos e instaladores
+            </li>
+            <li style="padding: 8px 0; padding-left: 24px; position: relative;">
+              <span style="position: absolute; left: 0;">✓</span>
+              <strong>Guías de soporte</strong> y scripts de atención
+            </li>
+            <li style="padding: 8px 0; padding-left: 24px; position: relative;">
+              <span style="position: absolute; left: 0;">✓</span>
+              <strong>Precios mayoreo</strong> y márgenes competitivos
+            </li>
+            <li style="padding: 8px 0; padding-left: 24px; position: relative;">
+              <span style="position: absolute; left: 0;">✓</span>
+              <strong>Soporte comercial</strong> dedicado
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h4>Tapo by TP-Link</h4>
+          <p>Solución integral de seguridad y automatización del hogar para ISPs. Incrementa ARPU, reduce churn y ofrece servicios de valor a tu base de clientes.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Enlaces Rápidos</h4>
+          <a href="#beneficios">Beneficios</a>
+          <a href="#productos">Productos</a>
+          <a href="#bundles">Bundles</a>
+          <a href="#implementacion">Implementación</a>
+        </div>
+        <div class="footer-section">
+          <h4>Contacto</h4>
+          <a href="mailto:julio.agraz@tp-link.com">julio.agraz@tp-link.com</a>
+          <a href="https://wa.me/523339566397">+52 333 956 6397</a>
+          <p style="margin-top: 16px; color: #999; font-size: 12px;">© 2026 TP-Link. Todos los derechos reservados.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        Esta página es un template comercial para distribuidores. Personaliza con tus datos, bundles y links.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function filterProducts(event, category) {
+      const cards = document.querySelectorAll('.product-card');
+      const buttons = document.querySelectorAll('.filter-btn');
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      cards.forEach(card => {
+        if (category === 'todos' || card.dataset.category === category) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function addToCart(event, product) {
+      alert(`✓ ${product} agregado a tu propuesta. Continúa seleccionando productos o ve a Contacto.`);
+    }
+
+    function contactForm() {
+      document.getElementById('contacto').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function handleSubmit(event) {
+      event.preventDefault();
+      const form = event.target;
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData);
+
+      const message = `
+Solicitud de Distribución Tapo
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Empresa: ${data.empresa}
+Contacto: ${data.nombre}
+Email: ${data.email}
+Teléfono: ${data.telefono || '-'}
+Interés: ${data.interes}
+Mensaje: ${data.mensaje || '-'}
+      `;
+
+      console.log(message);
+      alert('✓ Solicitud enviada con éxito. Te contactaremos pronto.');
+      form.reset();
+    }
+  </script>
 </body>
 </html>
